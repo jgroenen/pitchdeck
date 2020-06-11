@@ -8,6 +8,8 @@ RUN apt-get update -y && \
 
 COPY . /var/www/html
 
+RUN mkdir /var/www/html/savedDecks
+
 RUN chown -R www-data:www-data /var/www/html
 
 COPY vhost.conf /etc/apache2/sites-enabled/000-default.conf
