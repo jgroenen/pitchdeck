@@ -17,7 +17,8 @@
     if ($controller === "decks") {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $postData = file_get_contents("php://input");
-            if (strlen($postData) > 10000) {
+            $json = json_decode($postData);
+            if (strlen($postData) > 10000 || empty($json)) {
                 header("HTTP/1.1 400 Bad Request");
                 exit;
             }
