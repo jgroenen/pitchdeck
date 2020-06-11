@@ -1,0 +1,9 @@
+<h1 class="title">
+    <span class="display"><%= model.get("title") %></span>
+    <span class="edit" style="display: none"><input type="text" value="" placeholder="<%= model.get("title") %>"></span>
+</h1>
+<p class="content">
+    <span class="display"><%= model.get("content").replace(/\n/g, "<br>") %></span>
+    <span class="edit" style="display: none"><textarea value="" placeholder="<%= model.get("content").replace(/\"/g, "\\\"") %>"></textarea></span>
+</p>
+<p class="pagina-index">slide <%= model.get("page") %> van <%= model.get("totalPages") %></p>
