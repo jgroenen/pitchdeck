@@ -2,7 +2,7 @@ https://guykawasaki.com/the-only-10-slides-you-need-in-your-pitch/
 
 Code for NL styled version
 
-![](./screenshot.png =400x)
+<img src="screenshot.png" width="200"/>
 
 ## Run a development environment
 
