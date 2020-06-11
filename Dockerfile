@@ -11,9 +11,3 @@ COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
 COPY vhost.conf /etc/apache2/sites-enabled/000-default.conf
-
-USER www-data
-
-VOLUME /var/www/html/savedDecks
-
-USER root
