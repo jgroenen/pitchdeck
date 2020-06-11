@@ -14,8 +14,6 @@ COPY vhost.conf /etc/apache2/sites-enabled/000-default.conf
 
 USER www-data
 
-RUN composer install -d /var/www/html
-
 VOLUME /var/www/html/savedDecks
 
 USER root
