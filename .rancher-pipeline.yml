@@ -4,11 +4,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: pitchdeck
-      registry: 127.0.0.1:34172
+      tag: pitchdeck:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
-timeout: 60
 notification: {}
