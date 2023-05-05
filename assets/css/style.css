@@ -2,18 +2,18 @@ body {
     font-size: 100%;
     font-weight: 500;
     font-family: "Open Sans", Arial;
-    background: #111;
-    color: #eee;
+    background: #fff;
+    color: #777876;
     width: 100%;
     height: 100%;
 }
 h1 {
     font-size: 4em;
     font-weight: 900;
-    color: #38d;
+    color: #71BF9D;
     line-height: 1.4em;
     max-width: 40em;
-    border-bottom: 2px solid #38d;
+    border-bottom: 2px solid #71BF9D;
     margin: 100px;
 }
 p {
@@ -30,9 +30,9 @@ button.save {
     right: 1em;
     height: 4em;
     width: 4em;
-    background: #38d;
+    background: #71BF9D;
     border: 0;
-    color: #eee;
+    color: #fff;
     cursor: pointer;
     font-size: 1em;
     font-family: "Open Sans", Arial;
@@ -56,10 +56,10 @@ button.save:focus {
     display: block;
     padding: 0.2em 0.5em;
     text-align: center;
-    /*background: #38d;*/
-    background: #111;
+    /*background: #71BF9D;*/
+    background: #777876;
     border: 0;
-    color: #eee;
+    color: #fff;
     cursor: pointer;
     font-size: 1em;
     font-weight: 100;
@@ -78,14 +78,14 @@ footer {
     text-align: right;
 }
 a {
-    color: #38d;
+    color: #71BF9D;
     text-decoration: none;
 }
 h1 input {
     border: 0;
     font-size: 1em;
-    color: #38d;
-    background: #333;
+    color: #71BF9D;
+    background: #fff;
     outline: none;
     font-family: "Open Sans", Arial;
     font-weight: 900;
@@ -96,8 +96,8 @@ p textarea {
     outline: none;
     font-family: "Open Sans", Arial;
     width: 100%;
-    background: #222;
-    color: #eee;
+    background: #fff;
+    color: #777876;
     height: 100%;
     padding: 0;
     min-height: 10em;
