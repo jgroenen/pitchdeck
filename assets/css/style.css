@@ -1,125 +1,239 @@
+:root {
+    --bg: #111;
+    --surface: #1b1b1b;
+    --surface-strong: #262626;
+    --text: #eee;
+    --muted: #888;
+    --placeholder: #666;
+    --accent: #38d;
+    --focus: #ffd400;
+    --danger: #e66;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+[hidden] {
+    display: none !important;
+}
+html, body {
+    min-height: 100%;
+}
 body {
+    font-family: var(--font);
     font-size: 100%;
-    font-weight: 500;
-    font-family: "Open Sans", Arial;
-    background: #111;
-    color: #eee;
-    width: 100%;
-    height: 100%;
-}
-h1 {
-    font-size: 4em;
-    font-weight: 900;
-    color: #38d;
-    line-height: 1.4em;
-    max-width: 40em;
-    border-bottom: 2px solid #38d;
-    margin: 100px;
-}
-p {
-    margin-top: 1em;
-    font-size: 2em;
-    line-height: 1.4em;
-    max-width: 40em;
-    margin: 100px;
-}
-button.save {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: 1em;
-    height: 4em;
-    width: 4em;
-    background: #38d;
-    border: 0;
-    color: #eee;
-    cursor: pointer;
-    font-size: 1em;
-    font-family: "Open Sans", Arial;
-}
-button.save:focus {
-    outline: 2px solid yellow;
-}
-.slide {
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    width: 100%;
-    /*height: 100%;*/
-}
-.next {
-    text-align: right;
-}
-.next button {
-    float: right;
-    margin-right: 1em;
-    display: block;
-    padding: 0.2em 0.5em;
-    text-align: center;
-    /*background: #38d;*/
-    background: #111;
-    border: 0;
-    color: #eee;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 100;
-    font-family: "Open Sans", Arial;
-    height: 3em;
-    width: 6em;
-}
-.next button:focus {
-    outline: 2px solid yellow;
-}
-footer {
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
-    line-height: 1.4em;
-    text-align: right;
+    line-height: 1.5;
+    background: var(--bg);
+    color: var(--text);
 }
 a {
-    color: #38d;
+    color: var(--accent);
     text-decoration: none;
 }
-h1 input {
-    border: 0;
+a:hover {
+    text-decoration: underline;
+}
+:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* Buttons */
+.button {
+    font: inherit;
     font-size: 1em;
-    color: #38d;
+    color: var(--text);
+    background: var(--surface-strong);
+    border: 0;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+.button:hover {
     background: #333;
-    outline: none;
-    font-family: "Open Sans", Arial;
-    font-weight: 900;
 }
-p textarea {
-    border: 0;
-    font-size: 1em;
-    outline: none;
-    font-family: "Open Sans", Arial;
+.button-primary {
+    background: var(--accent);
+    font-weight: 700;
+}
+.button-primary:hover {
+    background: #49e;
+}
+.button-quiet {
+    background: transparent;
+    color: var(--muted);
+}
+.button-quiet:hover {
+    background: var(--surface);
+    color: var(--danger);
+}
+
+/* Deck list */
+.deck-list {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+.deck-list h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.2;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.25em;
+    margin-bottom: 0.75em;
+}
+.deck-list p {
+    margin-bottom: 1.5em;
+}
+.notice {
+    background: #3a2a00;
+    color: #ffd98a;
+    padding: 0.75em 1em;
+}
+.empty {
+    color: var(--muted);
+    margin-top: 2em;
+}
+.decks {
+    margin-top: 2em;
+}
+.deck-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border-top: 1px solid var(--surface-strong);
+}
+.deck-item:last-child {
+    border-bottom: 1px solid var(--surface-strong);
+}
+.deck-link {
+    flex: 1;
+    min-width: 0;
+    display: block;
+    padding: 1em 0.5em;
+    color: var(--text);
+}
+.deck-link:hover {
+    text-decoration: none;
+    background: var(--surface);
+}
+.deck-item-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.deck-item-meta {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+/* Deck editor */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.75em 1rem;
+    background: var(--bg);
+    font-size: 0.9em;
+}
+.deck-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--muted);
+}
+.save-status {
+    color: var(--muted);
+    white-space: nowrap;
+}
+.save-status[data-state="error"] {
+    color: var(--danger);
+}
+.slides {
+    padding-bottom: 6rem;
+}
+.slide {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 3rem 1rem 0;
+}
+.slide-title,
+.slide-content {
+    display: block;
     width: 100%;
-    background: #222;
-    color: #eee;
-    height: 100%;
-    padding: 0;
-    min-height: 10em;
+    font-family: var(--font);
+    color: var(--text);
+    background: transparent;
+    border: 0;
+    padding: 0.1em 0.2em;
 }
-@media (max-width: 400px) {
-    h1 {
-        font-size: 2.4em;
-    }
-    p {
-        font-size: 1.4em;
-    }
-    h1, p {
-        margin: 10px;
-        overflow-x: none;
-    }
-    input {
-        max-width: 100%;
-    }
-    button.save {
-        height: 2em;
-    }
+.slide-title {
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 1em;
 }
-.pagina-index {
-    font-size: 1.4em;
+.slide-content {
+    font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+    line-height: 1.5;
+    resize: none;
+    overflow: hidden;
+    min-height: 6em;
+}
+.slide-title::placeholder,
+.slide-content::placeholder {
+    color: var(--placeholder);
+    opacity: 1;
+}
+.slide-title:hover,
+.slide-content:hover {
+    background: var(--surface);
+}
+.slide-title:focus,
+.slide-content:focus {
+    background: var(--surface);
+    outline: none;
+}
+.pager {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 0.75em 1rem;
+    background: var(--bg);
+    border-top: 1px solid var(--surface-strong);
+}
+.pager .button,
+.slide-counter {
+    white-space: nowrap;
+}
+.slide-counter {
+    color: var(--muted);
+}
+
+@media (max-width: 30rem) {
+    .deck-list {
+        padding-top: 2rem;
+    }
+    .deck-list h1 {
+        font-size: 1.8rem;
+    }
+    .slide {
+        padding-top: 1.5rem;
+    }
 }

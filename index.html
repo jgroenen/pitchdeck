@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Johan Groenen">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='12' y='2' rx='1' fill='%2338d'/%3E%3C/svg%3E">
+    <title>Pitchdeck Generator</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="module" src="assets/js/app.mjs"></script>
+</head>
+<body>
+    <main id="app"></main>
+    <noscript><p class="notice">Deze app heeft JavaScript nodig.</p></noscript>
+    <script>
+        // Fallback when the ES modules fail to load, e.g. when opened via file://
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                var app = document.getElementById("app");
+                if (app.childElementCount) return;
+                var message = location.protocol === "file:"
+                    ? "Deze pagina moet via een webserver geopend worden (ES modules werken niet via file://). Start in de projectmap: python3 -m http.server 8000 en open http://localhost:8000"
+                    : "De app kon niet laden. Bekijk de console voor details.";
+                app.innerHTML = '<p class="notice" style="margin:2rem;padding:1rem;background:#3a2a00;color:#ffd98a;font-family:Arial,sans-serif"></p>';
+                app.firstChild.textContent = message;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
